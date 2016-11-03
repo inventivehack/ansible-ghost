@@ -1,8 +1,8 @@
-# - name: Install NGINX
-#   apt:
-#     name: nginx
-#     update_cache: yes
+- name: Install NGINX
+  apt:
+    name: nginx
+    update_cache: yes
 
-# - include: conf.yml
-# - include: sites.yml
+- include: conf.yml
+- include: sites.yml
 - include: ssl.yml
