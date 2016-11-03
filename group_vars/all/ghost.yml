@@ -4,5 +4,12 @@
 #                                                            #
 ##############################################################
 
+# Configuration
 ghost_port: 8080
+
+# Installation
 ghost_path: "/srv/ghost"
+
+# Permissions
+ghost_group: "ghost"
+ghost_user: "ghost"

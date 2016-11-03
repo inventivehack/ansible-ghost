@@ -1,5 +1,7 @@
 - name: Install NGINX
-  apt: name=nginx update_cache=yes
+  apt:
+    name: nginx
+    update_cache: yes
 
 - include: conf.yml
 - include: sites.yml

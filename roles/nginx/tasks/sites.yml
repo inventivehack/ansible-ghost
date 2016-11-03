@@ -6,13 +6,13 @@
 
 - name: Install blog site
   template:
-    src=blog.conf
-    dest=/etc/nginx/sites-available/blog.conf
+    src: blog.conf
+    dest: /etc/nginx/sites-available/blog.conf
   notify: Restart NGINX
 
 - name: Create NGINX symbolic link for main site
   file:
-    src=/etc/nginx/sites-available/blog.conf
-    dest=/etc/nginx/sites-enabled/blog.conf
-    state=link
+    src: /etc/nginx/sites-available/blog.conf
+    dest: /etc/nginx/sites-enabled/blog.conf
+    state: link
   notify: Restart NGINX

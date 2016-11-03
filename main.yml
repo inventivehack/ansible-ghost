@@ -4,3 +4,6 @@
   roles:
     - nginx
     - nodesource.node
+    - postgresql
+    - upstart
+    - ghost

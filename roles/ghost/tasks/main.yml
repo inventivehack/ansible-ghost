@@ -1,0 +1,3 @@
+- include: permissions.yml
+- include: fetch.yml
+- include: install.yml

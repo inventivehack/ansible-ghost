@@ -1,10 +1,11 @@
 ##############################################################
 #                                                            #
-#                   NGINX Service handlers                   #
+#                  Install Upstart services                  #
 #                                                            #
 ##############################################################
 
-- name: Restart NGINX
-  service:
-    name: nginx
-    state: restarted
+- name: Install Upstart script
+  template:
+    src: blog.conf.j2
+    dest: /etc/init/blog.conf
+  notify: Restart Ghost

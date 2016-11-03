@@ -1,10 +1,10 @@
 ##############################################################
 #                                                            #
-#                   NGINX Service handlers                   #
+#                PostgreSQL Service handlers                 #
 #                                                            #
 ##############################################################
 
-- name: Restart NGINX
+- name: Restart PostgreSQL
   service:
-    name: nginx
+    name: postgresql
     state: restarted

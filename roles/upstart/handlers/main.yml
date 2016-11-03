@@ -1,10 +1,11 @@
 ##############################################################
 #                                                            #
-#                   NGINX Service handlers                   #
+#                  Upstart Service handlers                  #
 #                                                            #
 ##############################################################
 
-- name: Restart NGINX
+- name: Restart Ghost
+  become: yes
   service:
-    name: nginx
+    name: blog
     state: restarted

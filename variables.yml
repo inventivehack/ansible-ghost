@@ -1,6 +1,0 @@
-# General
-server_name: "ihk.dev"
-
-# Ghost
-ghost_port: 8080
-ghost_path: "/srv/ghost"

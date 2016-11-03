@@ -1,0 +1,11 @@
+# blog
+
+# description "Ghost service"
+# author "Pablo Trinidad <p@ihk.io>"
+
+start on startup
+
+script
+    chdir {{ ghost_path }}
+    npm start --production -u {{ ghost_user }}
+end script
