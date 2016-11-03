@@ -17,7 +17,7 @@
     state: directory
   when: not ssl_certificates_path_exists.stat.exists and ssl_on
 
-- name: Check if there SSL certificates are installed
+- name: Check if there are SSL certificates installed
   find:
     paths: "{{ ssl_certificates_path }}/"
     file_type: directory

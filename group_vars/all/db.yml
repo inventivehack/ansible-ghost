@@ -5,6 +5,6 @@
 ##############################################################
 
 db_host: "127.0.0.1"
-db_user: "inventive"
+db_user: "ghost"
 db_password: "admin"
 db_name: "blog"

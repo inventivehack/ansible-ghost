@@ -4,17 +4,17 @@
 #                                                            #
 ##############################################################
 
-server_name: "ihk.dev"
+server_name: "example.com"
 
 # SSL
 ssl_on: true
-ssl_self_signed: false
+ssl_self_signed: true
 ssl_certificates_path: "/etc/nginx/ssl"
 
 ssl_expiration_days: 365
 
 ssl_country: "MX"
 ssl_state: "Mexico City"
-ssl_location: "Roma"
-ssl_organization: "Inventive Tec S.A.P.I de C.V"
-ssl_organization_unit: "Software Development"
+ssl_location: "Mexico City"
+ssl_organization: "Inventive"
+ssl_organization_unit: ""

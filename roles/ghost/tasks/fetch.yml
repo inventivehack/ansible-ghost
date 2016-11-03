@@ -14,7 +14,6 @@
     url: https://ghost.org/zip/ghost-latest.zip
     dest: /tmp/ghost.zip
     mode: 644
-  become_user: "{{ ghost_user }}"
 
 - name: Uncompress Ghost source
   unarchive:
