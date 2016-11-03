@@ -1,0 +1,20 @@
+##############################################################
+#                                                            #
+#                     Overall variables                      #
+#                                                            #
+##############################################################
+
+server_name: "ihk.dev"
+
+# SSL
+ssl_on: true
+ssl_self_signed: false
+ssl_certificates_path: "/etc/nginx/ssl"
+
+ssl_expiration_days: 365
+
+ssl_country: "MX"
+ssl_state: "Mexico City"
+ssl_location: "Roma"
+ssl_organization: "Inventive Tec S.A.P.I de C.V"
+ssl_organization_unit: "Software Development"

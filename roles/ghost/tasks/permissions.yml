@@ -1,0 +1,32 @@
+##############################################################
+#                                                            #
+#       Linux users and permissions pre-configuration        #
+#                                                            #
+##############################################################
+
+- name: Create Ghost group
+  group:
+    name: "{{ ghost_group }}"
+    system: yes
+    state: present
+
+- name: Create Ghost user
+  user:
+    name: "{{ ghost_user }}"
+    group: "{{ ghost_group }}"
+    system: yes
+    state: present
+
+- name: Check if Ghost installation path exists
+  stat:
+    path: "{{ ghost_path }}"
+  register: ghost_path_exists
+
+- name: Create Ghost installation path
+  file:
+    dest: "{{ ghost_path }}"
+    owner: "{{ ghost_user }}"
+    group: "{{ ghost_group }}"
+    mode: 0755
+    state: directory
+  when: not ghost_path_exists.stat.exists

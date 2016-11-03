@@ -1,0 +1,27 @@
+##############################################################
+#                                                            #
+#                     Fetch Ghost source                     #
+#                                                            #
+##############################################################
+
+- name: Install unzip
+  apt: 
+    name: unzip 
+    update_cache: yes
+
+- name: Download Ghost latest version
+  get_url:
+    url: https://ghost.org/zip/ghost-latest.zip
+    dest: /tmp/ghost.zip
+    mode: 644
+  become_user: "{{ ghost_user }}"
+
+- name: Uncompress Ghost source
+  unarchive:
+    src: /tmp/ghost.zip
+    dest: "{{ ghost_path }}"
+    owner: "{{ ghost_user }}"
+    group: "{{ ghost_group }}"
+    copy: no
+    creates: "{{ ghost_path }}/index.js"
+  become_user: "{{ ghost_user }}"

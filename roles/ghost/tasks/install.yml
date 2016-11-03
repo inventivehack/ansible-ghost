@@ -1,0 +1,27 @@
+##############################################################
+#                                                            #
+#                        Install Ghost                       #
+#                                                            #
+##############################################################
+
+- name: Install Ghost
+  npm:
+    path: "{{ ghost_path }}"
+    production: yes
+    state: present
+  become_user: "{{ ghost_user }}"
+
+- name: Remove Ghost sample files
+  file:
+    path: "{{ ghost_path }}/config.example.js"
+    state: absent
+
+- name: Update Ghost configuration
+  template:
+    src: config.js.j2
+    dest: "{{ ghost_path }}/config.js"
+    owner: "{{ ghost_user }}"
+    group: "{{ ghost_group }}"
+    mode: 0644
+  become_user: "{{ ghost_user }}"
+  notify: Restart Ghost

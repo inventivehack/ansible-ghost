@@ -1,0 +1,19 @@
+##############################################################
+#                                                            #
+#                   Ghost related variables                  #
+#                                                            #
+##############################################################
+
+# Configuration
+ghost_port: 8080
+
+# Installation
+ghost_path: "/srv/ghost"
+
+# Permissions
+ghost_group: "ghost"
+ghost_user: "ghost"
+
+# Mailing
+mail_user: ""
+mail_password: ""
