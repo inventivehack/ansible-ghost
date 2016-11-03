@@ -1,2 +1,6 @@
-- name: Main
+- name: Ansible Ghost stack
   hosts: default
+  become: yes
+  roles:
+    - nginx
+    - nodesource.node
