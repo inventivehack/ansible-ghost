@@ -4,11 +4,7 @@ var path = require('path'),
 config = {
 
     production: {
-    {% if ssl_on %}
-        url: 'https://{{ server_name }}',
-    {% else %}
         url: 'http://{{ server_name }}',
-    {% endif %}
 
         mail: {
             transport: 'SMTP',

@@ -42,6 +42,9 @@ server {
     server_name {{ server_name }};
 
     {% endif %}
+
+    client_max_body_size 20M;
+
     location ~ /?(.*)$ {
         proxy_cache_valid 200 10m;
         proxy_cache_valid 404 1m;
