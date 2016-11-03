@@ -6,7 +6,7 @@
 
 - name: Install blog site
   template:
-    src: blog.conf
+    src: blog.conf.j2
     dest: /etc/nginx/sites-available/blog.conf
   notify: Restart NGINX
 

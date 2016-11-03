@@ -5,3 +5,6 @@
 # Ansible
 inventory
 *.retry
+
+# SSL
+roles/nginx/files/ssl/

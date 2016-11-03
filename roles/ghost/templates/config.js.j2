@@ -4,13 +4,22 @@ var path = require('path'),
 config = {
 
     production: {
-    {% if server_ssl %}
+    {% if ssl_on %}
         url: 'https://{{ server_name }}',
     {% else %}
         url: 'http://{{ server_name }}',
     {% endif %}
 
-        mail: {},
+        mail: {
+            transport: 'SMTP',
+            options: {
+                service: 'Mailgun',
+                    auth: {
+                        user: '{{ mail_user }}',
+                        pass: '{{ mail_password }}'
+                    }
+            }
+        },
 
         database: {
             client: 'postgresql',
