@@ -1,5 +1,8 @@
-- name: Install NGINX
-  apt: name=nginx update_cache=yes
+##############################################################
+#                                                            #
+#             NGINX Default configuration files              #
+#                                                            #
+##############################################################
 
 - name: Remove NGINX main configuration file
   file: path=/etc/nginx/nginx.conf state=absent
