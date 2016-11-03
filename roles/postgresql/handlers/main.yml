@@ -1,0 +1,10 @@
+##############################################################
+#                                                            #
+#                PostgreSQL Service handlers                 #
+#                                                            #
+##############################################################
+
+- name: Restart PostgreSQL
+  service:
+    name: postgresql
+    state: restarted

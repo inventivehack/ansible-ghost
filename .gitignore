@@ -1,0 +1,10 @@
+# OS X
+.DS_Store
+
+
+# Ansible
+inventory
+*.retry
+
+# SSL
+roles/nginx/files/ssl/

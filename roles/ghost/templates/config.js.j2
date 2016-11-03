@@ -1,0 +1,44 @@
+var path = require('path'),
+    config;
+
+config = {
+
+    production: {
+    {% if ssl_on %}
+        url: 'https://{{ server_name }}',
+    {% else %}
+        url: 'http://{{ server_name }}',
+    {% endif %}
+
+        mail: {
+            transport: 'SMTP',
+            options: {
+                service: 'Mailgun',
+                    auth: {
+                        user: '{{ mail_user }}',
+                        pass: '{{ mail_password }}'
+                    }
+            }
+        },
+
+        database: {
+            client: 'postgresql',
+            connection: {
+                host: '{{ db_host }}',
+                user: '{{ db_user }}',
+                password: '{{ db_password }}',
+                database: '{{ db_name }}',
+                charset: 'utf8'
+            }
+        },
+
+
+        server: {
+            host: '127.0.0.1',
+            port: '{{ ghost_port }}'
+        }
+    },
+
+};
+
+module.exports = config;

@@ -1,0 +1,40 @@
+##############################################################
+#                                                            #
+#                  NGINX SSL Configuration                   #
+#                                                            #
+##############################################################
+
+- name: Check if SSL folder exists
+  stat:
+    path: "{{ ssl_certificates_path }}"
+  register: ssl_certificates_path_exists
+  when: ssl_on
+
+- name: Create SSL folder
+  file:
+    dest: "{{ ssl_certificates_path }}"
+    mode: 0400
+    state: directory
+  when: not ssl_certificates_path_exists.stat.exists and ssl_on
+
+- name: Check if there are SSL certificates installed
+  find:
+    paths: "{{ ssl_certificates_path }}/"
+    file_type: directory
+    patterns: "*"
+  register: ssl_certificates_exists
+  when: ssl_on
+
+- name: Generate self signed certificate
+  command: "openssl req -x509 -nodes -days {{ ssl_expiration_days }} -newkey rsa:4096 -keyout {{ ssl_certificates_path }}/{{ server_name }}.key -out {{ ssl_certificates_path }}/{{ server_name }}.crt -subj \"/C={{ ssl_country }}/ST={{ ssl_state }}/L={{ ssl_location }}/O={{ ssl_organization }}/OU={{ ssl_organization_unit }}/CN={{ server_name }}\""
+  when: ssl_self_signed and ssl_certificates_exists.examined|int == 0
+
+- name: Transfer own SSL files
+  copy:
+    src: ssl/{{ server_name }}.{{ item }}
+    dest: "{{ ssl_certificates_path }}/{{ server_name}}.{{ item }}"
+    mode: 0400
+  with_items:
+    - crt
+    - key
+  when: ssl_on and not ssl_self_signed

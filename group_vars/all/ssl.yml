@@ -1,0 +1,20 @@
+##############################################################
+#                                                            #
+#                     Overall variables                      #
+#                                                            #
+##############################################################
+
+server_name: "example.com"
+
+# SSL
+ssl_on: true
+ssl_self_signed: true
+ssl_certificates_path: "/etc/nginx/ssl"
+
+ssl_expiration_days: 365
+
+ssl_country: "MX"
+ssl_state: "Mexico City"
+ssl_location: "Mexico City"
+ssl_organization: "Inventive"
+ssl_organization_unit: ""

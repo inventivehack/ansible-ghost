@@ -1,0 +1,11 @@
+##############################################################
+#                                                            #
+#                  Upstart Service handlers                  #
+#                                                            #
+##############################################################
+
+- name: Restart Ghost
+  become: yes
+  service:
+    name: blog
+    state: restarted
