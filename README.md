@@ -1,7 +1,7 @@
 # Ansible playbook - Ghost
 
-This project contains an [Ansible playbook](http://docs.ansible.com/ansible/playbooks.html) capable
-of provisioning an Ubuntu 14.04 LTS server with the following characteristics:
+This project contains an [Ansible playbook](http://docs.ansible.com/ansible/playbooks.html) used
+for provisioning an Ubuntu 14.04 LTS server with the following characteristics:
 
 * **NGINX** as the web server
 * **PostgreSQL** as the DB engine.
@@ -71,6 +71,10 @@ Please refer to the [vars](group_vars) section for more information.
 ## Third party libraries/roles
 
 * [nodesource.node](https://github.com/nodesource/ansible-nodejs-role) - NodeJS installation role
+
+## Not Exactly What You Want?
+
+This is what we use internally. It might not be what you want.
 
 ## License
 
